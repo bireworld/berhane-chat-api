@@ -18,6 +18,12 @@ const messages = [welcomeMessage]
 app.get('/messages',(req,res)=>{
   res.send(messages)
 })
+app.get('messages/:id',(req,res)=>{
+  console.log()
+})
+app.post('messages/:id',(req,res)=>{
+  
+})
 
 
 app.get('/', function(request, response) {
