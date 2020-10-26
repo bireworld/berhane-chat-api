@@ -19,9 +19,13 @@ app.get('/messages',(req,res)=>{
   res.send(messages)
 })
 app.get('messages/:id',(req,res)=>{
-  console.log()
+  const id=id.params.id;
+  const found = messages.find(e=>e.id == id)
+  
+  res.json(found)
 })
 app.post('messages/:id',(req,res)=>{
+  
   
 })
 
