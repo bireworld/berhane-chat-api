@@ -21,13 +21,17 @@ app.get('/messages',(req,res)=>{
 app.get('/messages/:id',(req,res)=>{
   const id=req.params.id;
   const found = messages.find(e=>e.id == id)
-  if(found){
+  // if(found){
   res.json(found)
-  }
-  else{
-  res.status(400).json({e:'couldn''t find id})}
+  // }
+  // else{
+  // res.status(400).json({e:'couldn''t find id})}
 })
 app.post('messages/:id',(req,res)=>{
+  const value = req.body
+  value.id = messages.length
+  
+  res.send(value);
   
   
 })
