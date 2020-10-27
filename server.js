@@ -41,7 +41,7 @@ app.post('messages/:id',(req,res)=>{
 
     messages.forEach(e => {
         if (e.id == id) {
-            value.push(value);
+            messages.push(value);
         }
     });
 
