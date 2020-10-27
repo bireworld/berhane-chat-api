@@ -31,11 +31,21 @@ app.get('/messages/:id',(req,res)=>{
   // res.status(400).json({e:'couldn''t find id})}
 })
 app.post('messages/:id',(req,res)=>{
-  const msg = req.body
-  const id=req.params.id;
-  msg.id = messages.length
-  msg.push(msg)
-  res.json(messages);
+  // const msg = req.body
+  // const id=req.params.id;
+  // msg.id = messages.length
+  // msg.push(msg)
+  // res.json(messages);
+  const { id } = req.params
+    const value = req.body
+
+    messages.forEach(e => {
+        if (e.id == id) {
+            value.push(value);
+        }
+    });
+
+    res.send("Person updated")
   
   
 })
