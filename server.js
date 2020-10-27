@@ -30,6 +30,7 @@ app.get('/messages/:id',(req,res)=>{
 })
 app.post('messages/:id',(req,res)=>{
   const msg = req.body
+  const id=req.params.id;
   msg.id = messages.length
   msg.push(msg)
   res.json(messages);
