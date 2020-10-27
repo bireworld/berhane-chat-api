@@ -38,6 +38,7 @@ app.post('messages/:id',(req,res)=>{
   // res.json(messages);
   const { id } = req.params
     const value = req.body
+    value.id = messages.length
 
     messages.forEach(e => {
         if (e.id == id) {
