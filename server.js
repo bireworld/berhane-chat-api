@@ -3,7 +3,9 @@ const cors = require('cors')
 
 const app = express();
 
-app.use(express.urlencoded({extended:false}))
+var bodyParser = require('body-parser')
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(cors())
 
 const welcomeMessage = {
@@ -37,6 +39,7 @@ app.post('messages/:id',(req,res)=>{
   
   
 })
+
 
 
 app.get('/', function(request, response) {
