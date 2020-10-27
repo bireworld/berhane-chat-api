@@ -36,11 +36,11 @@ app.post('messages/:id',(req,res)=>{
   // msg.id = messages.length
   // msg.push(msg)
   // res.json(messages);
-  const { id } = req.params
+  const id  = req.params.id
     const value = req.body
     value.id = messages.length
 
-    messages.forEach(e => {
+    messages.find(e => {
         if (e.id == id) {
             messages.push(value);
         }
