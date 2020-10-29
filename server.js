@@ -30,9 +30,11 @@ app.get('/messages/:id',(req,res)=>{
 })
 app.post('messages/:id',(req,res)=>{
   const id  = req.params.id
-  const newMessage = req.body
-  //messages.id = messages.length
+  messages.id = messages.length
 
+  const newMessage = req.body
+  let newId = Math.max.apply(null, messages.map(x=>x.id))+1;
+  newMessage.id =  
     messages.find(e => {
         if (e.id == id) 
             messages.push(newMessage);
