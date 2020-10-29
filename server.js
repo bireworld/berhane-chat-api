@@ -29,19 +29,15 @@ app.get('/messages/:id',(req,res)=>{
   // res.status(400).json({e:'couldn''t find id})}
 })
 app.post('messages/:id',(req,res)=>{
-  // const msg = req.body
-  // const id=req.params.id;
-  // msg.id = messages.length
-  // msg.push(msg)
-  // res.json(messages);
   const id  = req.params.id
-    const newMessage = req.body
-    //messages.id = messages.length
+  const newMessage = req.body
+  //messages.id = messages.length
 
     messages.find(e => {
-        if (e.id == id) {
+        if (e.id == id) 
             messages.push(newMessage);
-        }
+          //console.log(req.body)
+        
     });
 
     res.json(req.body)
