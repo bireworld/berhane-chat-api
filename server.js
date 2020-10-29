@@ -24,33 +24,25 @@ app.get('/messages/:id',(req,res)=>{
   const found = messages.find(e=>e.id == id)
   // if(found){
   res.json(found)
-  // }
-  // else{
-  // res.status(400).json({e:'couldn''t find id})}
 })
 app.post('/messages',(req,res)=>{
   //const id  = req.params.id
+   if(req.body.from){
   messages.id = messages.length
 
   const newMessage = req.body
   newMessage.id=messages.length
   console.log(newMessage)
-  //let newId = Math.max.apply(null, messages.map(x=>x.id))+1;
-  
-  //   console.log(newId)
-  // newMessage.id =  newId;
-
-    messages.find(e => {
-        if (e.id == id) 
-            messages.push(newMessage);
-          //console.log(req.body)
-        
+   messages.push(newMessage);
+     res.json(messages)
+   }
+  else{
+    res.status(404).send("post unsuccessful")
+  }     
     });
+  
+  
 
-    res.json(req.body)
-  
-  
-})
 
 
 app.get('/', function(request, response) {
