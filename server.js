@@ -28,11 +28,12 @@ app.get('/messages/:id',(req,res)=>{
   // else{
   // res.status(400).json({e:'couldn''t find id})}
 })
-app.post('messages/:id',(req,res)=>{
-  const id  = req.params.id
+app.post('/messages',(req,res)=>{
+  //const id  = req.params.id
   messages.id = messages.length
 
   const newMessage = req.body
+  newMessage.id=messages.length
   console.log(newMessage)
   //let newId = Math.max.apply(null, messages.map(x=>x.id))+1;
   
