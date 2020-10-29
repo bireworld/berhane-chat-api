@@ -3,7 +3,7 @@ const cors = require('cors')
 
 const app = express();
 
-app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
 const welcomeMessage = {
@@ -36,7 +36,7 @@ app.post('messages/:id',(req,res)=>{
   // res.json(messages);
   const id  = req.params.id
     const newMessage = req.body
-    messages.id = messages.length
+    //messages.id = messages.length
 
     messages.find(e => {
         if (e.id == id) {
@@ -44,7 +44,7 @@ app.post('messages/:id',(req,res)=>{
         }
     });
 
-    res.send("Person updated")
+    res.json(req.body)
   
   
 })
