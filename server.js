@@ -26,7 +26,7 @@ app.get('/messages/:id',(req,res)=>{
   res.json(found)
 })
 app.post('/messages',(req,res)=>{
-  //const id  = req.params.id
+  
    if(req.body.from){
   messages.id = messages.length
 
