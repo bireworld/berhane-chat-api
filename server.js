@@ -3,7 +3,7 @@ const cors = require('cors')
 
 const app = express();
 
-app.use(express.urlencoded({ extended: true }))
+app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
 const welcomeMessage = {
@@ -28,24 +28,26 @@ app.get('/messages/:id',(req,res)=>{
   // else{
   // res.status(400).json({e:'couldn''t find id})}
 })
-app.post('messages/:id',(req,res)=>{
-  const id  = req.params.id
-  messages.id = messages.length
+app.post('messages',(req,res)=>{
+  //const id  = req.params.id
+  //messages.id = messages.length
 
   const newMessage = req.body
+  console.log(newMessage)
   let newId = Math.max.apply(null, messages.map(x=>x.id))+1;
-  newMessage.id =  
-    messages.find(e => {
-        if (e.id == id) 
+  
+    console.log(newId)
+  newMessage.id =  newId;
+
             messages.push(newMessage);
           //console.log(req.body)
-        
+        res.json()
     });
 
-    res.json(req.body)
+    
   
   
-})
+
 
 
 app.get('/', function(request, response) {
