@@ -35,12 +35,12 @@ app.post('messages/:id',(req,res)=>{
   // msg.push(msg)
   // res.json(messages);
   const id  = req.params.id
-    const value = req.body
-    value.id = messages.length
+    const newMessage = req.body
+    newMessage.id = messages.length
 
     messages.find(e => {
         if (e.id == id) {
-            messages.push(value);
+            messages.push(newMessage);
         }
     });
 
