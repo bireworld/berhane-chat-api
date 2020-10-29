@@ -40,6 +40,23 @@ app.post('/messages',(req,res)=>{
     res.status(404).send("post unsuccessful")
   }     
     });
+app.post("/message", (req,res)=>{
+        const id = req.body.id;
+
+        let arr = []
+        const index = messages.findIndex(e=>e.id==id)
+
+        if(index > -1){
+            messages.splice(index,1)
+            res.json('Delete successful')
+        }
+        else{
+            res.status(400).json({msg:`could not find message with ${id}`})
+        }
+        res.send(arr)
+
+    })
+  
   
   
 
