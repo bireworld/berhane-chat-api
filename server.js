@@ -36,7 +36,7 @@ app.post('messages/:id',(req,res)=>{
   // res.json(messages);
   const id  = req.params.id
     const newMessage = req.body
-    newMessage.id = messages.length
+    messages.id = messages.length
 
     messages.find(e => {
         if (e.id == id) {
