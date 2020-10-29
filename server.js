@@ -1,5 +1,6 @@
 const express = require("express");
-const cors = require('cors')
+const cors = require('cors');
+const { request } = require("express");
 
 const app = express();
 
@@ -27,7 +28,7 @@ app.get('/messages/:id',(req,res)=>{
 })
 app.post('/messages',(req,res)=>{
   
-   if(req.body.from){
+   if(req.body.from || req.body.text){
   messages.id = messages.length
 
   const newMessage = req.body
@@ -37,10 +38,10 @@ app.post('/messages',(req,res)=>{
      res.json(messages)
    }
   else{
-    res.status(404).send("post unsuccessful")
+    res.status(400).send("Bad Request")
   }     
     });
-app.post("/message", (req,res)=>{
+    app.post("/message", (req,res)=>{
         const id = req.body.id;
 
         let arr = []
@@ -56,7 +57,6 @@ app.post("/message", (req,res)=>{
         res.send(arr)
 
     })
-  
   
   
 
