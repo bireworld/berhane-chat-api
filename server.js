@@ -75,6 +75,23 @@ app.post('/messages',(req,res)=>{
         res.sendStatus (404);
           }
         });
+
+app.put ('/messages/update/:id', (req, res) => {
+  const {id} = req.params;
+
+  const msgUpdate = req.body;
+
+  const message = messages.find (msg => msg.id == id);
+  if (message) {
+    const filteredMsg = messages.filter (msg => msg.id !== id);
+    messages = filteredMsg;
+    messages.push (msgUpdate);
+    res.json (`Message with id ${id} is updated.`);
+  } else {
+    res.sendStatus (404);
+  }
+});
+
 //   app.delete ('/messages/:id', (req, res) => {
 //     const {id} = req.params;
 
