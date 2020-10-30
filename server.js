@@ -10,7 +10,8 @@ app.use(cors())
 const welcomeMessage = {
   id: 0,
   from: "Bart",
-  text: "Welcome to CYF chat system!"
+  text: "Welcome to CYF chat system!",
+  timeSent: req.body.timeSent 
 }
 
 //This array is our "data store".
@@ -33,9 +34,9 @@ app.post('/messages',(req,res)=>{
 
   const newMessage = req.body
   newMessage.id=messages.length
-     req.body.id = newMessage.id;
-      req.body.timeSent = new Date ();
-      messages.push (req.body);
+  req.body.id = newMessage.id;
+  req.body.timeSent = new Date ();
+  messages.push (req.body);
       res
         .status (201)
         .json (` Successfully A new chat with Id number ${newMessage.id}  is created.`);
