@@ -40,7 +40,7 @@ app.post('/messages',(req,res)=>{
   else{
     res.status(400).send("Bad Request")
   }     
-//     });
+     });
 //     app.post("/message", (req,res)=>{
 //         const id = req.body.id;
 
