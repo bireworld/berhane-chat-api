@@ -33,9 +33,15 @@ app.post('/messages/newmessage',(req,res)=>{
 
   const newMessage = req.body
   newMessage.id=messages.length
-  console.log(newMessage)
-   messages.push(newMessage);
-     res.json(messages)
+     req.body.id = newMessage.id;
+      req.body.timeSent = new Date ();
+      messages.push (req.body);
+      res
+        .status (201)
+        .json (` Successfully A new chat with Id number ${newMessage.id}  is created.`);
+  // console.log(newMessage)
+  //  messages.push(newMessage);
+  //    res.json(messages)
    }
   else{
     res.status(400).send("Bad Request")
