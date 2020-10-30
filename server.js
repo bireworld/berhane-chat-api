@@ -39,42 +39,40 @@ app.post('/messages/newmessage',(req,res)=>{
       res
         .status (201)
         .json (` Successfully A new chat with Id number ${newMessage.id}  is created.`);
-  // console.log(newMessage)
-  //  messages.push(newMessage);
-  //    res.json(messages)
+ 
    }
   else{
     res.status(400).send("Bad Request")
   }     
      });
-//     app.post("/message", (req,res)=>{
-//         const id = req.body.id;
+    app.post("/messages", (req,res)=>{
+        const id = req.body.id;
 
-//         let arr = []
-//         const index = messages.findIndex(e=>e.id==id)
+        let arr = []
+        const index = messages.findIndex(e=>e.id==id)
 
-//         if(index > -1){
-//             messages.splice(index,1)
-//             res.json('Delete successful')
-//         }
-//         else{
-//             res.status(400).json({msg:`could not find message with ${id}`})
-//         }
-//         res.send(arr)
+        if(index > -1){
+            messages.splice(index,1)
+            res.json('Delete successful')
+        }
+        else{
+            res.status(400).json({msg:`could not find message with ${id}`})
+        }
+        res.send(arr)
 
-//     })
-  app.delete ('/messages/:id', (req, res) => {
-    const {id} = req.params;
+    })
+//   app.delete ('/messages/:id', (req, res) => {
+//     const {id} = req.params;
 
-  const indexToDelete = messages.findIndex (msg => msg.id === Number (id));
+//   const indexToDelete = messages.findIndex (msg => msg.id === Number (id));
   
-  if (indexToDelete) {
-    messages.splice (indexToDelete, 1);
-    res.sendStatus (204);
-  } else {
-    res.sendStatus (404);
-  }
-});
+//   if (indexToDelete) {
+//     messages.splice (indexToDelete, 1);
+//     res.sendStatus (204);
+//   } else {
+//     res.sendStatus (404);
+//   }
+// });
 
 
   
