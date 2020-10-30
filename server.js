@@ -26,7 +26,7 @@ app.get('/messages/:id',(req,res)=>{
   found ? res.json (found) : res.sendStatus (404);
   res.json(found)
 })
-app.post('/messages/newmessage',(req,res)=>{
+app.post('/messages',(req,res)=>{
   
    if(req.body.from || req.body.text){
   messages.id = messages.length
@@ -45,7 +45,7 @@ app.post('/messages/newmessage',(req,res)=>{
     res.status(400).send("Bad Request")
   }     
      });
-    app.post("/messages", (req,res)=>{
+    app.post("/message", (req,res)=>{
         const id = req.body.id;
 
         let arr = []
