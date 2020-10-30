@@ -11,7 +11,7 @@ const welcomeMessage = {
   id: 0,
   from: "Bart",
   text: "Welcome to CYF chat system!",
-  timeSent: req.body.timeSent 
+  //timeSent: req.body.timeSent 
 }
 
 //This array is our "data store".
@@ -62,6 +62,19 @@ app.post('/messages',(req,res)=>{
         res.send(arr)
 
     })
+
+    app.get ('/messages/search', (req, res) => {
+      const searchMessage = req.query.text;
+      const result = messages.filter (e => {
+       return e.text.toLowerCase ().includes (searchMessage.toLowerCase ());
+      });
+      console.log (result);
+      if (result) {
+        res.json (result);
+      } else {
+        res.sendStatus (404);
+          }
+        });
 //   app.delete ('/messages/:id', (req, res) => {
 //     const {id} = req.params;
 
