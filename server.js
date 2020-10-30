@@ -23,10 +23,10 @@ app.get('/messages',(req,res)=>{
 app.get('/messages/:id',(req,res)=>{
   const id=req.params.id;
   const found = messages.find(e=>e.id == id)
-  // if(found){
+  found ? res.json (found) : res.sendStatus (404);
   res.json(found)
 })
-app.post('/messages',(req,res)=>{
+app.post('/messages/newmessage',(req,res)=>{
   
    if(req.body.from || req.body.text){
   messages.id = messages.length
@@ -69,6 +69,8 @@ app.post('/messages',(req,res)=>{
     res.sendStatus (404);
   }
 });
+
+
   
 
 
